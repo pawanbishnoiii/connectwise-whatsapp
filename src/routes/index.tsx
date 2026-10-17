@@ -51,7 +51,7 @@ function Index() {
       const r = await fetch(url.replace(/\/$/, "") + path, {
         method: body !== undefined ? "POST" : "GET",
         headers: { "Content-Type": "application/json", "x-api-key": key },
-        body: body !== undefined ? JSON.stringify(body) : undefined,
+        body: body !== undefined ? JSON.stringify(body) : null,
       });
       const j = await r.json().catch(() => ({}));
       if (!r.ok) throw new Error(j.error || `Error ${r.status}`);
